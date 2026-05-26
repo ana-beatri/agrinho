@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agrinho 2026 - Minecraft Ambiental</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>AGRINHO 2026</h1>
+    <p>Desmatamento, Reflorestamento e Cooperação</p>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      <h2>Mundo dos Villagers</h2>
+
+      <p>
+        Neste jogo inspirado em Minecraft,
+        suas escolhas irão definir o futuro da vila.
+      </p>
+
+      <button onclick="iniciarJogo()">
+        Iniciar Jornada
+      </button>
+    </section>
+
+    <section class="jogo">
+
+      <div class="cenario">
+
+        <div class="arvores" id="arvores">
+          🌳 🌳 🌳 🌳 🌳
+        </div>
+
+        <div class="farm">
+          🌾 🌾 🌾 🌾 🌾
+        </div>
+
+        <div class="villagers" id="villagers">
+          🙂 🙂 🙂
+        </div>
+
+      </div>
+
+      <div class="acoes">
+
+        <button onclick="desmatar()">
+          Cortar Árvores
+        </button>
+
+        <button onclick="roubarFarm()">
+          Roubar Farms
+        </button>
+
+        <button onclick="reflorestar()">
+          Reflorestar
+        </button>
+
+        <button onclick="ajudarVillagers()">
+          Ajudar Villagers
+        </button>
+
+      </div>
+
+      <div class="mensagem" id="mensagem">
+        Faça sua escolha...
+      </div>
+
+    </section>
+
+    <section class="final" id="final">
+
+      <h2>Reflexão Ambiental</h2>
+
+      <p>
+        O desmatamento causa:
+      </p>
+
+      <ul>
+        <li>Perda da biodiversidade</li>
+        <li>Aquecimento global</li>
+        <li>Erosão do solo</li>
+        <li>Falta de água</li>
+        <li>Desequilíbrio ambiental</li>
+      </ul>
+
+      <h3>Possíveis soluções:</h3>
+
+      <ul>
+        <li>Reflorestamento</li>
+        <li>Agricultura sustentável</li>
+        <li>Preservação das florestas</li>
+        <li>Consumo consciente</li>
+        <li>Educação ambiental</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Projeto Educacional - Agrinho 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
