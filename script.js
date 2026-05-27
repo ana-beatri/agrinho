@@ -1,87 +1,99 @@
-let destruicao = 0;
-let ajuda = 0;
+let pontosPositivos = 0;
+let pontosNegativos = 0;
 
-const mensagem = document.getElementById("mensagem");
-const arvores = document.getElementById("arvores");
-const villagers = document.getElementById("villagers");
+function iniciarJogo() {
 
-function iniciarJogo(){
+  // Resetar pontos
+  pontosPositivos = 0;
+  pontosNegativos = 0;
 
-  mensagem.innerHTML =
-  "A vila está vivendo em equilíbrio. Suas escolhas irão mudar tudo.";
+  // Resetar emojis
+  document.getElementById("arvores").innerHTML =
+    "🌳 🌳 🌳 🌳 🌳";
 
+  document.getElementById("villagers").innerHTML =
+    "🙂 🙂 🙂";
+
+  // Resetar mensagem
+  document.getElementById("mensagem").innerHTML =
+    "Faça sua escolha...";
+
+  // Esconder reflexão final
+  document.getElementById("final").style.display =
+    "none";
 }
 
-function desmatar(){
+function desmatar() {
 
-  destruicao++;
+  pontosNegativos++;
 
-  arvores.innerHTML = "🌳 🌳";
+  document.getElementById("arvores").innerHTML =
+    "🪵 🪵 🪵";
 
-  villagers.innerHTML = "😡 😡 😢";
-
-  mensagem.innerHTML =
-  "Você cortou árvores da floresta. Os villagers estão preocupados com a destruição da natureza.";
+  document.getElementById("mensagem").innerHTML =
+    "As florestas estão desaparecendo!";
 
   verificarFinal();
-
 }
 
-function roubarFarm(){
+function roubarFarm() {
 
-  destruicao++;
+  pontosNegativos++;
 
-  villagers.innerHTML = "😠 😠 😠";
+  document.getElementById("villagers").innerHTML =
+    "😡 😢";
 
-  mensagem.innerHTML =
-  "Você roubou alimentos das farms sem ajudar os villagers. A vila ficou revoltada.";
+  document.getElementById("mensagem").innerHTML =
+    "Os villagers perderam alimento!";
 
   verificarFinal();
-
 }
 
-function reflorestar(){
+function reflorestar() {
 
-  ajuda++;
+  pontosPositivos++;
 
-  arvores.innerHTML = "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
+  document.getElementById("arvores").innerHTML =
+    "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
-  villagers.innerHTML = "🙂 😊 🙂";
-
-  mensagem.innerHTML =
-  "Você plantou novas árvores e ajudou a recuperar a floresta.";
+  document.getElementById("mensagem").innerHTML =
+    "A natureza está se recuperando!";
 
   verificarFinal();
-
 }
 
-function ajudarVillagers(){
+function ajudarVillagers() {
 
-  ajuda++;
+  pontosPositivos++;
 
-  villagers.innerHTML = "😀 🎁 😀";
+  document.getElementById("villagers").innerHTML =
+    "😄 🥰 😄";
 
-  mensagem.innerHTML =
-  "Os villagers ficaram felizes com sua ajuda e deram presentes: ⛏️ 🪓 🥕";
+  document.getElementById("mensagem").innerHTML =
+    "Os villagers estão felizes!";
 
   verificarFinal();
-
 }
 
-function verificarFinal(){
+function verificarFinal() {
 
-  if(destruicao >= 2){
+  // Só mostra o final quando atingir 2 ações positivas
+  if (pontosPositivos >= 2) {
 
-    mensagem.innerHTML =
-    "Você explorou os recursos da vila sem responsabilidade. Os villagers expulsaram seu personagem da comunidade. ❌";
+    document.getElementById("mensagem").innerHTML =
+      "Parabéns! Você salvou a vila!";
 
+    document.getElementById("final").style.display =
+      "block";
   }
 
-  if(ajuda >= 2){
+  // Final ruim
+  if (pontosNegativos >= 2) {
 
-    mensagem.innerHTML =
-    "Você trabalhou junto com os villagers, protegeu a natureza e ajudou a vila crescer. Agora todos vivem em harmonia! ✅";
+    document.getElementById("mensagem").innerHTML =
+      "A vila entrou em colapso ambiental!";
 
+    document.getElementById("final").style.display =
+      "block";
   }
-
 }
