@@ -3,14 +3,18 @@ let pontosNegativos = 0;
 
 function iniciarJogo() {
 
-  // Resetar pontos
   pontosPositivos = 0;
   pontosNegativos = 0;
 
-  // Resetar emojis
+  // Resetar árvores
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳";
 
+  // Resetar farm
+  document.getElementById("farm").innerHTML =
+    "🌾 🌾 🌾 🌾 🌾";
+
+  // Resetar villagers
   document.getElementById("villagers").innerHTML =
     "🙂 🙂 🙂";
 
@@ -18,7 +22,7 @@ function iniciarJogo() {
   document.getElementById("mensagem").innerHTML =
     "Faça sua escolha...";
 
-  // Esconder reflexão final
+  // Esconder final
   document.getElementById("final").style.display =
     "none";
 }
@@ -30,8 +34,12 @@ function desmatar() {
   document.getElementById("arvores").innerHTML =
     "🪵 🪵 🪵";
 
+  // Villagers tristes/bravos
+  document.getElementById("villagers").innerHTML =
+    "😡 😢 😠";
+
   document.getElementById("mensagem").innerHTML =
-    "As florestas estão desaparecendo!";
+    "Os villagers estão revoltados com o desmatamento!";
 
   verificarFinal();
 }
@@ -40,11 +48,16 @@ function roubarFarm() {
 
   pontosNegativos++;
 
+  // Trigos desaparecem
+  document.getElementById("farm").innerHTML =
+    "🟫 🟫 🟫";
+
+  // Villagers tristes
   document.getElementById("villagers").innerHTML =
-    "😡 😢";
+    "😭 😟 😡";
 
   document.getElementById("mensagem").innerHTML =
-    "Os villagers perderam alimento!";
+    "Os villagers perderam seus alimentos!";
 
   verificarFinal();
 }
@@ -56,8 +69,12 @@ function reflorestar() {
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
+  // Villagers felizes
+  document.getElementById("villagers").innerHTML =
+    "😄 😊 🥰";
+
   document.getElementById("mensagem").innerHTML =
-    "A natureza está se recuperando!";
+    "Os villagers comemoram o reflorestamento!";
 
   verificarFinal();
 }
@@ -66,18 +83,18 @@ function ajudarVillagers() {
 
   pontosPositivos++;
 
+  // Villagers felizes
   document.getElementById("villagers").innerHTML =
-    "😄 🥰 😄";
+    "😁 🥳 😍";
 
   document.getElementById("mensagem").innerHTML =
-    "Os villagers estão felizes!";
+    "Os villagers agradecem sua ajuda!";
 
   verificarFinal();
 }
 
 function verificarFinal() {
 
-  // Só mostra o final quando atingir 2 ações positivas
   if (pontosPositivos >= 2) {
 
     document.getElementById("mensagem").innerHTML =
@@ -87,7 +104,6 @@ function verificarFinal() {
       "block";
   }
 
-  // Final ruim
   if (pontosNegativos >= 2) {
 
     document.getElementById("mensagem").innerHTML =
