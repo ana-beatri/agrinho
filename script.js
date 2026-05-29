@@ -1,111 +1,106 @@
-const somPositivo = new Audio("https://www.myinstants.com/media/sounds/mario-coin.mp3");
-const somNegativo = new Audio("https://www.myinstants.com/media/sounds/error.mp3");
-let pontosPositivos = 0;
-let pontosNegativos = 0;
+let vida = 100;
 
+// 🌱 iniciar
 function iniciarJogo() {
 
-  pontosPositivos = 0;
-  pontosNegativos = 0;
+  vida = 100;
+  atualizarVida();
 
-  document.getElementById("arvores").innerHTML =
-    "🌳 🌳 🌳 🌳 🌳";
-
-  document.getElementById("farm").innerHTML =
-    "🌾 🌾 🌾 🌾 🌾";
-
-  document.getElementById("villagers").innerHTML =
-    "🙂 🙂 🙂";
-
-  document.getElementById("mensagem").innerHTML =
-    "Faça sua escolha...";
-
-  document.getElementById("final").style.display =
-    "none";
+  document.getElementById("arvores").innerHTML = "🌳 🌳 🌳 🌳 🌳";
+  document.getElementById("farm").innerHTML = "🌾 🌾 🌾 🌾 🌾";
+  document.getElementById("villagers").innerHTML = "🙂 🙂 🙂";
+  document.getElementById("mensagem").innerHTML = "Faça sua escolha...";
 }
 
+// 🪵 desmatar
 function desmatar() {
 
-  pontosNegativos++;
+  vida -= 10;
 
-  document.getElementById("arvores").innerHTML =
-    "🪵 🪵 🪵";
+  animar("arvores", "animar-negativo");
 
-  document.getElementById("villagers").innerHTML =
-    "😡 😢 😠";
+  document.getElementById("arvores").innerHTML = "🪵 🪵 🪵";
 
-  verificarFinal();
+  atualizarTudo();
 }
 
+// 🌾 roubar farm
 function roubarFarm() {
 
-  pontosNegativos++;
+  vida -= 10;
 
-  document.getElementById("farm").innerHTML =
-    "🟫 🟫 🟫";
+  animar("farm", "animar-negativo");
 
-  document.getElementById("villagers").innerHTML =
-    "😭 😟 😡";
+  document.getElementById("farm").innerHTML = "🟫 🟫 🟫";
 
-  verificarFinal();
+  atualizarTudo();
 }
 
+// 🌳 reflorestar
 function reflorestar() {
 
-  pontosPositivos++;
+  vida += 10;
 
-  document.getElementById("arvores").innerHTML =
-    "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
+  animar("arvores", "animar-positivo");
 
-  document.getElementById("villagers").innerHTML =
-    "😄 😊 🥰";
+  document.getElementById("arvores").innerHTML = "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
-  verificarFinal();
+  atualizarTudo();
 }
 
+// 🙂 ajudar
 function ajudarVillagers() {
 
-  pontosPositivos++;
+  vida += 10;
 
-  document.getElementById("villagers").innerHTML =
-    "😁 🥳 😍";
+  animar("villagers", "animar-positivo");
 
-  document.getElementById("farm").innerHTML =
-    "🌾 🌾 🌾 🌾 🌾";
+  document.getElementById("farm").innerHTML = "🌾 🌾 🌾 🌾 🌾";
 
-  verificarFinal();
+  atualizarTudo();
 }
 
-function verificarFinal() {
+// 🎯 animação
+function animar(id, classe) {
+  const el = document.getElementById(id);
+  el.classList.add(classe);
 
-  if (pontosPositivos >= 2) {
+  setTimeout(() => {
+    el.classList.remove(classe);
+  }, 500);
+}
 
-    document.getElementById("mensagem").innerHTML =
-      "Parabéns! Você salvou a vila! 🌱✨";
+// ❤️ barra de vida
+function atualizarVida() {
 
-    document.getElementById("final").style.display = "block";
-    return;
-  }
+  const barra = document.getElementById("barraVida");
 
-  if (pontosNegativos >= 2) {
+  barra.style.width = vida + "%";
 
-    document.getElementById("mensagem").innerHTML =
-      "A vila entrou em colapso ambiental! 🌍💀";
+  if (vida > 70) barra.style.background = "#4caf50";
+  else if (vida > 40) barra.style.background = "#ffeb3b";
+  else barra.style.background = "#f44336";
+}
 
-    document.getElementById("final").style.display = "block";
-    return;
-  }
+// 🔄 lógica principal
+function atualizarTudo() {
 
-  // 🔥 MENSAGEM DINÂMICA (resolve seu problema)
-  const mensagem = document.getElementById("mensagem");
+  atualizarVida();
+  verificarFase();
+}
 
-  if (pontosPositivos > pontosNegativos) {
-    mensagem.innerHTML = "A vila está evoluindo positivamente! 🌿😊";
+// 🌍 fases
+function verificarFase() {
+
+  const msg = document.getElementById("mensagem");
+
+  if (vida >= 70) {
+    msg.innerHTML = "🌿 Fase: Harmonia Ambiental";
   } 
-  else if (pontosNegativos > pontosPositivos) {
-    mensagem.innerHTML = "A vila está sofrendo impactos negativos! ⚠️";
+  else if (vida >= 40) {
+    msg.innerHTML = "⚠️ Fase: Atenção Ambiental";
   } 
   else {
-    mensagem.innerHTML = "O equilíbrio ainda pode ser restaurado ⚖️";
+    msg.innerHTML = "💀 Fase: Colapso Ambiental";
   }
 }

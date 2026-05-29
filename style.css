@@ -27,10 +27,6 @@ header h1{
   background:#dcedc8;
 }
 
-.intro h2{
-  margin-bottom:15px;
-}
-
 button{
   padding:12px 20px;
   margin:10px;
@@ -58,25 +54,11 @@ button:hover{
   border:5px solid #5d4037;
   padding:40px;
   border-radius:15px;
-  margin-bottom:30px;
 }
 
-.arvores{
-  font-size:2.5rem;
-  margin-bottom:20px;
-}
-
-.farm{
+.arvores, .farm, .villagers{
   font-size:2rem;
-  margin-bottom:20px;
-}
-
-.villagers{
-  font-size:2rem;
-}
-
-.acoes{
-  margin-bottom:30px;
+  margin:15px;
 }
 
 .mensagem{
@@ -86,23 +68,46 @@ button:hover{
   max-width:700px;
   margin:auto;
   font-size:1.2rem;
-  box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
 
-.final{
-  background:#f1f8e9;
-  padding:40px;
-  margin-top:40px;
+/* ❤️ VIDA */
+.vida-vila{
+  width:80%;
+  height:18px;
+  background:#ddd;
+  margin:10px auto;
+  border-radius:10px;
+  overflow:hidden;
 }
 
-.final h2{
-  color:#2e7d32;
-  margin-bottom:20px;
+#barraVida{
+  height:100%;
+  width:100%;
+  background:#4caf50;
+  transition:0.3s;
 }
 
-.final ul{
-  margin-top:15px;
-  margin-left:30px;
+/* 🌿 animações */
+.animar-positivo{
+  animation: crescer 0.5s ease;
+}
+
+.animar-negativo{
+  animation: tremer 0.5s ease;
+}
+
+@keyframes crescer{
+  0%{transform:scale(0.9);opacity:0.6;}
+  100%{transform:scale(1);opacity:1;}
+}
+
+@keyframes tremer{
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-5px);}
+  50%{transform:translateX(5px);}
+  75%{transform:translateX(-5px);}
+  100%{transform:translateX(0);}
 }
 
 footer{
@@ -110,78 +115,4 @@ footer{
   color:white;
   text-align:center;
   padding:20px;
-}
-
-@media(max-width:768px){
-
-  header h1{
-    font-size:2rem;
-  }
-
-  .arvores,
-  .farm,
-  .villagers{
-    font-size:1.5rem;
-  }
-
-}
-/* 🌱 ANIMAÇÃO POSITIVA (crescimento) */
-.animar-positivo {
-  animation: crescer 0.5s ease;
-}
-
-/* 💥 ANIMAÇÃO NEGATIVA (impacto) */
-.animar-negativo {
-  animation: tremer 0.5s ease;
-}
-
-/* 🌿 crescimento */
-@keyframes crescer {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* ⚠️ tremor */
-@keyframes tremer {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
-}
-/* 🌿 animação positiva (cresce) */
-.animar-positivo {
-  animation: crescer 0.5s ease;
-}
-
-/* 💥 animação negativa (tremor) */
-.animar-negativo {
-  animation: tremer 0.5s ease;
-}
-
-/* 🌱 efeito crescer */
-@keyframes crescer {
-  0% {
-    transform: scale(0.9);
-    opacity: 0.6;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* ⚠️ efeito tremor */
-@keyframes tremer {
-  0% { transform: translateX(0); }
-  25% { transform: translateX(-5px); }
-  50% { transform: translateX(5px); }
-  75% { transform: translateX(-5px); }
-  100% { transform: translateX(0); }
 }

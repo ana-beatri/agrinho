@@ -24,12 +24,15 @@
         suas escolhas irão definir o futuro da vila.
       </p>
 
-      <button onclick="iniciarJogo()">
-        Iniciar Jornada
-      </button>
+      <button onclick="iniciarJogo()">Iniciar Jornada</button>
     </section>
 
     <section class="jogo">
+
+      <!-- ❤️ VIDA -->
+      <div class="vida-vila">
+        <div id="barraVida"></div>
+      </div>
 
       <div class="cenario">
 
@@ -37,7 +40,6 @@
           🌳 🌳 🌳 🌳 🌳
         </div>
 
-        <!-- CORREÇÃO AQUI -->
         <div class="farm" id="farm">
           🌾 🌾 🌾 🌾 🌾
         </div>
@@ -50,55 +52,16 @@
 
       <div class="acoes">
 
-        <button onclick="desmatar()">
-          Cortar Árvores
-        </button>
-
-        <button onclick="roubarFarm()">
-          Roubar Farms
-        </button>
-
-        <button onclick="reflorestar()">
-          Reflorestar
-        </button>
-
-        <button onclick="ajudarVillagers()">
-          Ajudar Villagers
-        </button>
+        <button onclick="desmatar()">Cortar Árvores</button>
+        <button onclick="roubarFarm()">Roubar Farms</button>
+        <button onclick="reflorestar()">Reflorestar</button>
+        <button onclick="ajudarVillagers()">Ajudar Villagers</button>
 
       </div>
 
       <div class="mensagem" id="mensagem">
         Faça sua escolha...
       </div>
-
-    </section>
-
-    <section class="final" id="final">
-
-      <h2>Reflexão Ambiental</h2>
-
-      <p>
-        O desmatamento causa:
-      </p>
-
-      <ul>
-        <li>Perda da biodiversidade</li>
-        <li>Aquecimento global</li>
-        <li>Erosão do solo</li>
-        <li>Falta de água</li>
-        <li>Desequilíbrio ambiental</li>
-      </ul>
-
-      <h3>Possíveis soluções:</h3>
-
-      <ul>
-        <li>Reflorestamento</li>
-        <li>Agricultura sustentável</li>
-        <li>Preservação das florestas</li>
-        <li>Consumo consciente</li>
-        <li>Educação ambiental</li>
-      </ul>
 
     </section>
 
