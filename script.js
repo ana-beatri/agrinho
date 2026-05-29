@@ -73,16 +73,14 @@ function reflorestar() {
     "😄 😊 🥰";
 
   document.getElementById("mensagem").innerHTML =
-    "Os villagers comemoram o reflorestamento!";
+    "Excelente escolha! A floresta está voltando à vida e a vila fica mais saudável 🌱💚";
 
   verificarFinal();
 }
-
 function ajudarVillagers() {
 
   pontosPositivos++;
 
-  // Villagers felizes
   document.getElementById("villagers").innerHTML =
     "😁 🥳 😍";
 
@@ -91,7 +89,7 @@ function ajudarVillagers() {
     "🌾 🌾 🌾 🌾 🌾";
 
   document.getElementById("mensagem").innerHTML =
-    "Os villagers agradeceram sua ajuda e reconstruíram a farm!";
+    "Muito bem! Os villagers estão felizes e a comunidade está mais forte e unida 🤝✨";
 
   verificarFinal();
 }
