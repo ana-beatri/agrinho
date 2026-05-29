@@ -1,6 +1,5 @@
-const somPositivo = new Audio("...");
-const somNegativo = new Audio("...");
-
+const somPositivo = new Audio("https://www.myinstants.com/media/sounds/mario-coin.mp3");
+const somNegativo = new Audio("https://www.myinstants.com/media/sounds/error.mp3");
 let pontosPositivos = 0;
 let pontosNegativos = 0;
 
