@@ -15,7 +15,7 @@ function iniciarJogo() {
 // 🪵 desmatar
 function desmatar() {
 
-  vida -= 10;
+  vida -= 20;
 
   animar("arvores", "animar-negativo");
 
@@ -31,12 +31,12 @@ function desmatar() {
 // 🌾 roubar farm
 function roubarFarm() {
 
-  vida -= 10;
+  vida -= 20;
 
   animar("farm", "animar-negativo");
 
   document.getElementById("farm").innerHTML =
-    "🟫 🪵 🟫";
+    "🟫 🟫 🟫";
 
   document.getElementById("villagers").innerHTML =
     "😭 😢 😞";
@@ -47,7 +47,7 @@ function roubarFarm() {
 // 🌳 reflorestar
 function reflorestar() {
 
-  vida += 10;
+  vida += 25;
 
   animar("arvores", "animar-positivo");
 
@@ -63,7 +63,7 @@ function reflorestar() {
 // 🙂 ajudar
 function ajudarVillagers() {
 
-  vida += 10;
+  vida += 30;
 
   animar("villagers", "animar-positivo");
 
@@ -114,10 +114,10 @@ function verificarFase() {
   const msg = document.getElementById("mensagem");
   if (!msg) return;
 
-  if (vida >= 70) {
+  if (vida >= 60) {
     msg.innerHTML = "🌿 Fase: Harmonia Ambiental";
   } 
-  else if (vida >= 40) {
+  else if (vida >= 50) {
     msg.innerHTML = "⚠️ Fase: Atenção Ambiental";
   } 
   else {
