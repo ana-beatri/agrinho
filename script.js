@@ -12,6 +12,7 @@ function iniciarJogo() {
   document.getElementById("mensagem").innerHTML = "Faça sua escolha...";
 }
 
+// 🪵 desmatar
 function desmatar() {
 
   vida -= 10;
@@ -27,7 +28,8 @@ function desmatar() {
   atualizarTudo();
 }
 
-/function roubarFarm() {
+// 🌾 roubar farm
+function roubarFarm() {
 
   vida -= 10;
 
@@ -42,6 +44,7 @@ function desmatar() {
   atualizarTudo();
 }
 
+// 🌳 reflorestar
 function reflorestar() {
 
   vida += 10;
@@ -57,6 +60,7 @@ function reflorestar() {
   atualizarTudo();
 }
 
+// 🙂 ajudar
 function ajudarVillagers() {
 
   vida += 10;
@@ -74,7 +78,10 @@ function ajudarVillagers() {
 
 // 🎯 animação
 function animar(id, classe) {
+
   const el = document.getElementById(id);
+  if (!el) return;
+
   el.classList.add(classe);
 
   setTimeout(() => {
@@ -86,6 +93,7 @@ function animar(id, classe) {
 function atualizarVida() {
 
   const barra = document.getElementById("barraVida");
+  if (!barra) return;
 
   barra.style.width = vida + "%";
 
@@ -96,7 +104,6 @@ function atualizarVida() {
 
 // 🔄 lógica principal
 function atualizarTudo() {
-
   atualizarVida();
   verificarFase();
 }
@@ -105,6 +112,7 @@ function atualizarTudo() {
 function verificarFase() {
 
   const msg = document.getElementById("mensagem");
+  if (!msg) return;
 
   if (vida >= 70) {
     msg.innerHTML = "🌿 Fase: Harmonia Ambiental";
