@@ -1,28 +1,27 @@
 let pontosPositivos = 0;
 let pontosNegativos = 0;
 
+// 🎵 SONS
+const somPositivo = new Audio("som-positivo.mp3");
+const somNegativo = new Audio("som-negativo.mp3");
+
 function iniciarJogo() {
 
   pontosPositivos = 0;
   pontosNegativos = 0;
 
-  // Resetar árvores
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳";
 
-  // Resetar farm
   document.getElementById("farm").innerHTML =
     "🌾 🌾 🌾 🌾 🌾";
 
-  // Resetar villagers
   document.getElementById("villagers").innerHTML =
     "🙂 🙂 🙂";
 
-  // Resetar mensagem
   document.getElementById("mensagem").innerHTML =
     "Faça sua escolha...";
 
-  // Esconder final
   document.getElementById("final").style.display =
     "none";
 }
@@ -31,14 +30,14 @@ function desmatar() {
 
   pontosNegativos++;
 
+  somNegativo.currentTime = 0;
+  somNegativo.play();
+
   document.getElementById("arvores").innerHTML =
     "🪵 🪵 🪵";
 
   document.getElementById("villagers").innerHTML =
     "😡 😢 😠";
-
-  document.getElementById("mensagem").innerHTML =
-    "Os villagers estão revoltados com o desmatamento!";
 
   verificarFinal();
 }
@@ -47,17 +46,14 @@ function roubarFarm() {
 
   pontosNegativos++;
 
-  const farm = document.getElementById("farm");
+  somNegativo.currentTime = 0;
+  somNegativo.play();
 
-  if (farm) {
-    farm.innerHTML = "🟫 🟫 🟫";
-  }
+  document.getElementById("farm").innerHTML =
+    "🟫 🟫 🟫";
 
   document.getElementById("villagers").innerHTML =
     "😭 😟 😡";
-
-  document.getElementById("mensagem").innerHTML =
-    "Os villagers perderam seus alimentos!";
 
   verificarFinal();
 }
@@ -66,30 +62,30 @@ function reflorestar() {
 
   pontosPositivos++;
 
+  somPositivo.currentTime = 0;
+  somPositivo.play();
+
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
   document.getElementById("villagers").innerHTML =
     "😄 😊 🥰";
 
-  document.getElementById("mensagem").innerHTML =
-    "Excelente escolha! A floresta está voltando à vida e a vila fica mais saudável 🌱💚";
-
   verificarFinal();
 }
+
 function ajudarVillagers() {
 
   pontosPositivos++;
 
-  document.getElementById("villagers").innerHTML =
-    "😁 🥳 😍";
+  somPositivo.currentTime = 0;
+  somPositivo.play();
 
-  // Farm volta ao normal
   document.getElementById("farm").innerHTML =
     "🌾 🌾 🌾 🌾 🌾";
 
-  document.getElementById("mensagem").innerHTML =
-    "Muito bem! Os villagers estão felizes e a comunidade está mais forte e unida 🤝✨";
+  document.getElementById("villagers").innerHTML =
+    "😁 🥳 😍";
 
   verificarFinal();
 }
@@ -99,18 +95,31 @@ function verificarFinal() {
   if (pontosPositivos >= 2) {
 
     document.getElementById("mensagem").innerHTML =
-      "Parabéns! Você salvou a vila!";
+      "Parabéns! Você salvou a vila! 🌱✨";
 
-    document.getElementById("final").style.display =
-      "block";
+    document.getElementById("final").style.display = "block";
+    return;
   }
 
   if (pontosNegativos >= 2) {
 
     document.getElementById("mensagem").innerHTML =
-      "A vila entrou em colapso ambiental!";
+      "A vila entrou em colapso ambiental! 🌍💀";
 
-    document.getElementById("final").style.display =
-      "block";
+    document.getElementById("final").style.display = "block";
+    return;
+  }
+
+  // mensagem dinâmica
+  const mensagem = document.getElementById("mensagem");
+
+  if (pontosPositivos > pontosNegativos) {
+    mensagem.innerHTML = "A vila está evoluindo positivamente! 🌿😊";
+  } 
+  else if (pontosNegativos > pontosPositivos) {
+    mensagem.innerHTML = "A vila está sofrendo impactos negativos! ⚠️";
+  } 
+  else {
+    mensagem.innerHTML = "O equilíbrio ainda pode ser restaurado ⚖️";
   }
 }
