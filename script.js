@@ -15,7 +15,7 @@ function iniciarJogo() {
 // 🪵 desmatar
 function desmatar() {
 
-  vida -= 20;
+  vida -= 30;
 
   animar("arvores", "animar-negativo");
 
