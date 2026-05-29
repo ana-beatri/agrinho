@@ -155,3 +155,33 @@ footer{
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
 }
+/* 🌿 animação positiva (cresce) */
+.animar-positivo {
+  animation: crescer 0.5s ease;
+}
+
+/* 💥 animação negativa (tremor) */
+.animar-negativo {
+  animation: tremer 0.5s ease;
+}
+
+/* 🌱 efeito crescer */
+@keyframes crescer {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ⚠️ efeito tremor */
+@keyframes tremer {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
