@@ -12,50 +12,62 @@ function iniciarJogo() {
   document.getElementById("mensagem").innerHTML = "Faça sua escolha...";
 }
 
-// 🪵 desmatar
 function desmatar() {
 
   vida -= 10;
 
   animar("arvores", "animar-negativo");
 
-  document.getElementById("arvores").innerHTML = "🪵 🪵 🪵";
+  document.getElementById("arvores").innerHTML =
+    "🪵 🪵 🪵";
+
+  document.getElementById("villagers").innerHTML =
+    "😡 😠 😤";
 
   atualizarTudo();
 }
 
-// 🌾 roubar farm
-function roubarFarm() {
+/function roubarFarm() {
 
   vida -= 10;
 
   animar("farm", "animar-negativo");
 
-  document.getElementById("farm").innerHTML = "🟫 🟫 🟫";
+  document.getElementById("farm").innerHTML =
+    "🟫 🪵 🟫";
+
+  document.getElementById("villagers").innerHTML =
+    "😭 😢 😞";
 
   atualizarTudo();
 }
 
-// 🌳 reflorestar
 function reflorestar() {
 
   vida += 10;
 
   animar("arvores", "animar-positivo");
 
-  document.getElementById("arvores").innerHTML = "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
+  document.getElementById("arvores").innerHTML =
+    "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
+
+  document.getElementById("villagers").innerHTML =
+    "😄 😊 🥰";
 
   atualizarTudo();
 }
 
-// 🙂 ajudar
 function ajudarVillagers() {
 
   vida += 10;
 
   animar("villagers", "animar-positivo");
 
-  document.getElementById("farm").innerHTML = "🌾 🌾 🌾 🌾 🌾";
+  document.getElementById("farm").innerHTML =
+    "🌾 🌾 🌾 🌾 🌾";
+
+  document.getElementById("villagers").innerHTML =
+    "😁 🥳 😍";
 
   atualizarTudo();
 }
