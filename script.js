@@ -1,9 +1,8 @@
+const somPositivo = new Audio("...");
+const somNegativo = new Audio("...");
+
 let pontosPositivos = 0;
 let pontosNegativos = 0;
-
-// 🎵 SONS
-const somPositivo = new Audio("som-positivo.mp3");
-const somNegativo = new Audio("som-negativo.mp3");
 
 function iniciarJogo() {
 
@@ -30,9 +29,6 @@ function desmatar() {
 
   pontosNegativos++;
 
-  somNegativo.currentTime = 0;
-  somNegativo.play();
-
   document.getElementById("arvores").innerHTML =
     "🪵 🪵 🪵";
 
@@ -45,9 +41,6 @@ function desmatar() {
 function roubarFarm() {
 
   pontosNegativos++;
-
-  somNegativo.currentTime = 0;
-  somNegativo.play();
 
   document.getElementById("farm").innerHTML =
     "🟫 🟫 🟫";
@@ -62,9 +55,6 @@ function reflorestar() {
 
   pontosPositivos++;
 
-  somPositivo.currentTime = 0;
-  somPositivo.play();
-
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
@@ -78,14 +68,11 @@ function ajudarVillagers() {
 
   pontosPositivos++;
 
-  somPositivo.currentTime = 0;
-  somPositivo.play();
+  document.getElementById("villagers").innerHTML =
+    "😁 🥳 😍";
 
   document.getElementById("farm").innerHTML =
     "🌾 🌾 🌾 🌾 🌾";
-
-  document.getElementById("villagers").innerHTML =
-    "😁 🥳 😍";
 
   verificarFinal();
 }
@@ -110,7 +97,7 @@ function verificarFinal() {
     return;
   }
 
-  // mensagem dinâmica
+  // 🔥 MENSAGEM DINÂMICA (resolve seu problema)
   const mensagem = document.getElementById("mensagem");
 
   if (pontosPositivos > pontosNegativos) {
