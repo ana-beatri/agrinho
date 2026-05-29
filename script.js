@@ -82,11 +82,16 @@ function ajudarVillagers() {
 
   pontosPositivos++;
 
+  // Villagers felizes
   document.getElementById("villagers").innerHTML =
     "😁 🥳 😍";
 
+  // Farm volta ao normal
+  document.getElementById("farm").innerHTML =
+    "🌾 🌾 🌾 🌾 🌾";
+
   document.getElementById("mensagem").innerHTML =
-    "Os villagers agradecem sua ajuda!";
+    "Os villagers agradeceram sua ajuda e reconstruíram a farm!";
 
   verificarFinal();
 }
