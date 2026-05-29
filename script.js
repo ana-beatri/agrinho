@@ -34,7 +34,6 @@ function desmatar() {
   document.getElementById("arvores").innerHTML =
     "🪵 🪵 🪵";
 
-  // Villagers tristes/bravos
   document.getElementById("villagers").innerHTML =
     "😡 😢 😠";
 
@@ -48,11 +47,12 @@ function roubarFarm() {
 
   pontosNegativos++;
 
-  // Trigos desaparecem
-  document.getElementById("farm").innerHTML =
-    "🟫 🟫 🟫";
+  const farm = document.getElementById("farm");
 
-  // Villagers tristes
+  if (farm) {
+    farm.innerHTML = "🟫 🟫 🟫";
+  }
+
   document.getElementById("villagers").innerHTML =
     "😭 😟 😡";
 
@@ -69,7 +69,6 @@ function reflorestar() {
   document.getElementById("arvores").innerHTML =
     "🌳 🌳 🌳 🌳 🌳 🌳 🌳";
 
-  // Villagers felizes
   document.getElementById("villagers").innerHTML =
     "😄 😊 🥰";
 
@@ -83,7 +82,6 @@ function ajudarVillagers() {
 
   pontosPositivos++;
 
-  // Villagers felizes
   document.getElementById("villagers").innerHTML =
     "😁 🥳 😍";
 
