@@ -47,7 +47,7 @@ function roubarFarm() {
 // 🌳 reflorestar
 function reflorestar() {
 
-  vida += 25;
+  vida += 30;
 
   animar("arvores", "animar-positivo");
 
@@ -63,7 +63,7 @@ function reflorestar() {
 // 🙂 ajudar
 function ajudarVillagers() {
 
-  vida += 30;
+  vida += 45;
 
   animar("villagers", "animar-positivo");
 
