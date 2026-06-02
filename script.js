@@ -10,6 +10,8 @@ function iniciarJogo() {
   document.getElementById("farm").innerHTML = "🌾 🌾 🌾 🌾 🌾";
   document.getElementById("villagers").innerHTML = "🙂 🙂 🙂";
   document.getElementById("mensagem").innerHTML = "Faça sua escolha...";
+
+  mostrarTextoAgrinho(); // ✨ Adicionado: mostrar texto do Agrinho
 }
 
 // 🪵 desmatar
@@ -123,4 +125,18 @@ function verificarFase() {
   else {
     msg.innerHTML = "💀 Fase: Colapso Ambiental";
   }
+}
+
+// 📜 novo: mostrar texto educativo do Agrinho
+function mostrarTextoAgrinho() {
+  const texto = `
+O desmatamento é uma das maiores ameaças ao meio ambiente,
+destruindo florestas, ameaçando a biodiversidade e contribuindo
+para as mudanças climáticas. Cada árvore preservada ajuda a manter
+o equilíbrio da natureza e garante recursos essenciais para as
+próximas gerações.
+  `;
+  const container = document.getElementById("agrinho-texto");
+  if (!container) return;
+  container.innerText = texto;
 }
