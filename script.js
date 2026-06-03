@@ -10,8 +10,7 @@ function iniciarJogo() {
   document.getElementById("farm").innerHTML = "🌾 🌾 🌾 🌾 🌾";
   document.getElementById("villagers").innerHTML = "🙂 🙂 🙂";
   document.getElementById("mensagem").innerHTML = "Faça sua escolha...";
-
-  mostrarTextoAgrinho(); // ✨ Adicionado: mostrar texto do Agrinho
+  document.getElementById("agrinho-texto").innerHTML = "";
 }
 
 // 🪵 desmatar
@@ -62,7 +61,7 @@ function reflorestar() {
   atualizarTudo();
 }
 
-// 🙂 ajudar
+// 🙂 ajudar villagers
 function ajudarVillagers() {
 
   vida += 45;
@@ -99,44 +98,68 @@ function atualizarVida() {
 
   barra.style.width = vida + "%";
 
-  if (vida > 70) barra.style.background = "#4caf50";
-  else if (vida > 40) barra.style.background = "#ffeb3b";
-  else barra.style.background = "#f44336";
+  if (vida > 70) {
+    barra.style.background = "#4caf50";
+  } else if (vida > 40) {
+    barra.style.background = "#ffeb3b";
+  } else {
+    barra.style.background = "#f44336";
+  }
 }
 
-// 🔄 lógica principal
+// 🔄 atualizar
 function atualizarTudo() {
   atualizarVida();
   verificarFase();
 }
 
-// 🌍 fases
+// 🌍 fases e finais
 function verificarFase() {
 
   const msg = document.getElementById("mensagem");
   if (!msg) return;
 
-  if (vida >= 60) {
+  if (vida >= 150) {
+
+    msg.innerHTML =
+      "🏆 FINAL FELIZ: A vila prosperou com sustentabilidade!";
+
+    mostrarTextoAgrinho(
+      "Parabéns! Você mostrou que reflorestar, preservar a natureza e ajudar a comunidade são atitudes fundamentais para um futuro melhor. A união entre as pessoas e o respeito ao meio ambiente garantem qualidade de vida para todos."
+    );
+
+  }
+  else if (vida >= 60) {
+
     msg.innerHTML = "🌿 Fase: Harmonia Ambiental";
-  } 
+
+  }
   else if (vida >= 50) {
+
     msg.innerHTML = "⚠️ Fase: Atenção Ambiental";
-  } 
+
+  }
   else {
-    msg.innerHTML = "💀 Fase: Colapso Ambiental";
+
+    msg.innerHTML =
+      "💀 FINAL RUIM: Colapso Ambiental";
+
+    mostrarTextoAgrinho(
+      "O desmatamento e a exploração excessiva dos recursos naturais causaram sérios impactos ambientais. Preservar as florestas, reflorestar áreas degradadas e agir com responsabilidade são atitudes essenciais para proteger o planeta e as futuras gerações."
+    );
   }
 }
 
-// 📜 novo: mostrar texto educativo do Agrinho
-function mostrarTextoAgrinho() {
-  const texto = `
-O desmatamento é uma das maiores ameaças ao meio ambiente,
-destruindo florestas, ameaçando a biodiversidade e contribuindo
-para as mudanças climáticas. Cada árvore preservada ajuda a manter
-o equilíbrio da natureza e garante recursos essenciais para as
-próximas gerações.
-  `;
+// 📜 texto final
+function mostrarTextoAgrinho(texto) {
+
   const container = document.getElementById("agrinho-texto");
   if (!container) return;
+
   container.innerText = texto;
 }
+
+// carregar barra de vida
+window.onload = function () {
+  atualizarVida();
+};
